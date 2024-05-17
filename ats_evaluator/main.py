@@ -1,12 +1,12 @@
 import spacy
 import argparse
 
-from analysis.basic_analysis import do_basic_analysis
-from analysis.diff_analysis import do_token_diff_analysis, do_char_diff_analysis
-from analysis.pos_analysis import do_pos_analysis
-from analysis.readability_analysis import do_readability_analysis
-from analysis.similarity_analysis import do_similarity_analysis
-from analysis.vdb_analysis import do_vdb_analysis
+from .analysis.basic_analysis import do_basic_analysis
+from .analysis.diff_analysis import do_token_diff_analysis, do_char_diff_analysis
+from .analysis.pos_analysis import do_pos_analysis
+from .analysis.readability_analysis import do_readability_analysis
+from .analysis.similarity_analysis import do_similarity_analysis
+from .analysis.vdb_analysis import do_vdb_analysis
 
 nlp = spacy.load("it_core_news_lg")
 
