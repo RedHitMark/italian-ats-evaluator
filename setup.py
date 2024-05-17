@@ -5,7 +5,6 @@ REQUIRED_PKGS = [
     'pyphen>=0.15.0',
     'editdistance==0.8.1',
     'sentence-transformers>=2.7.0',
-    'it_core_news_lg @ https://github.com/explosion/spacy-models/releases/download/it_core_news_lg-3.7.0/it_core_news_lg-3.7.0.tar.gz',
 ]
 
 setup(

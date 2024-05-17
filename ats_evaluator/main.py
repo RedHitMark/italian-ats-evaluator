@@ -7,7 +7,11 @@ from .analysis.readability_analysis import do_readability_analysis
 from .analysis.similarity_analysis import do_similarity_analysis
 from .analysis.vdb_analysis import do_vdb_analysis
 
-nlp = spacy.load("it_core_news_lg")
+try:
+    nlp = spacy.load("it_core_news_lg")
+except OSError:
+    spacy.cli.download("it_core_news_lg")
+    nlp = spacy.load("it_core_news_lg")
 
 
 def analyze_text(text):
