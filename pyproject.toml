@@ -1,6 +1,6 @@
 [project]
 name = "italian-ats-evaluator"
-version = "1.0.1"
+version = "1.0.2"
 description = "Italian ATS Evaluator"
 readme = {file = "README.md", content-type = "text/markdown"}
 license = {text = "MIT License"}
@@ -56,5 +56,5 @@ include-package-data = true
 italian_ats_evaluator = ["nvdb/*.txt"]
 
 [tool.setuptools.packages.find]
-include = ["italian_ats_evaluator"]
+include = ["italian_ats_evaluator", "italian_ats_evaluator.*"]
 exclude = ["docs*", "tests*"]
