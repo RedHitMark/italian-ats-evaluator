@@ -1,13 +1,12 @@
 import pkgutil
 
-italian_vdb_fo = {a for a in pkgutil.get_data('ats_evaluator', 'nvdb/FO.txt').decode('utf-8').split('\r\n')}
-italian_vdb_au = {a for a in pkgutil.get_data('ats_evaluator', 'nvdb/AU.txt').decode('utf-8').split('\r\n')}
-italian_vdb_ad = {a for a in pkgutil.get_data('ats_evaluator', 'nvdb/AD.txt').decode('utf-8').split('\r\n')}
+italian_vdb_fo = {a for a in pkgutil.get_data('italian_ats_evaluator', 'nvdb/FO.txt').decode('utf-8').split('\r\n')}
+italian_vdb_au = {a for a in pkgutil.get_data('italian_ats_evaluator', 'nvdb/AU.txt').decode('utf-8').split('\r\n')}
+italian_vdb_ad = {a for a in pkgutil.get_data('italian_ats_evaluator', 'nvdb/AD.txt').decode('utf-8').split('\r\n')}
 italian_vdb = italian_vdb_fo.union(italian_vdb_au).union(italian_vdb_ad)
 
 
 def is_vdb(lemma: str):
-    print(italian_vdb)
     return lemma in italian_vdb
 
 
