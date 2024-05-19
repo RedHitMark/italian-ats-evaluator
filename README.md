@@ -20,7 +20,7 @@ You can analyze a single text extracting the following features:
 - Verbs distribution
   - Active Verbs
   - Passive Verbs
-- Italian Basic Vocabulary (VdB) by [Tullio De Mauro](https://dizionario.internazionale.it/)
+- Italian Basic Vocabulary (NVdB) from [Il Nuovo vocabolario di base della lingua italiana, Tullio De Mauro](https://dizionario.internazionale.it/)
   - All
   - FO (Fundamentals)
   - AU (High Usage)
@@ -47,17 +47,19 @@ pip install italian-ats-evaluator
 ## Usage
 
 ```python
-import italian_ats_evaluator
+from italian_ats_evaluator import TextAnalyzer
 
-text_analyzed = italian_ats_evaluator.analyze_text("Il gatto mangia il topo")
+result = TextAnalyzer(
+  text="Il gatto mangia il topo"
+)
 ```
 
 ```python
-import italian_ats_evaluator
+from italian_ats_evaluator import SimplificationAnalyzer
 
-text_analyzed, simplified_analyzed, comparion =  italian_ats_evaluator.compare(
-    ref_text="Il felino mangia il roditore",
-    simplified_text="Il gatto mangia il topo",
+result =  SimplificationAnalyzer(
+    reference_text="Il felino mangia il roditore",
+    simplified_text="Il gatto mangia il topo"
 )
 ```
 
