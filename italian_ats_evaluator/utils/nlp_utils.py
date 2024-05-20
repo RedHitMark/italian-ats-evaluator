@@ -1,6 +1,7 @@
 import spacy
 import pyphen
 import pkgutil
+from sentence_transformers import SentenceTransformer
 
 dic = pyphen.Pyphen(lang='it')
 
@@ -10,12 +11,26 @@ italian_vdb_ad = {a for a in pkgutil.get_data('italian_ats_evaluator', 'nvdb/AD.
 italian_vdb = italian_vdb_fo.union(italian_vdb_au).union(italian_vdb_ad)
 
 
-def get_model() -> spacy.language.Language:
-    try:
-        return spacy.load("it_core_news_lg")
-    except OSError:
-        spacy.cli.download("it_core_news_lg")
-        return spacy.load("it_core_news_lg")
+spacy_model = None
+sentence_transformers_model = None
+
+
+def get_spacy_model() -> spacy.language.Language:
+    global spacy_model
+    if spacy_model is None:
+        try:
+            spacy_model = spacy.load("it_core_news_lg")
+        except OSError:
+            spacy.cli.download("it_core_news_lg")
+            spacy_model = spacy.load("it_core_news_lg")
+    return spacy_model
+
+
+def get_sentence_transformers_model():
+    global sentence_transformers_model
+    if sentence_transformers_model is None:
+        sentence_transformers_model = SentenceTransformer('all-MiniLM-L6-v2')
+    return sentence_transformers_model
 
 
 def clean_text(text: str) -> str:

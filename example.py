@@ -1,9 +1,11 @@
-import italian_ats_evaluator
+from italian_ats_evaluator import TextAnalyzer, SimplificationAnalyzer
 
+if __name__ == "__main__":
+    result = TextAnalyzer(
+      text="Il gatto mangia il topo"
+    )
 
-a = italian_ats_evaluator.compare(
-    ref_text="Il felino mangia il roditore",
-    simplified_text="Il gatto mangia il topo",
-)
-
-print(a)
+    result = SimplificationAnalyzer(
+        reference_text="Il felino mangia il roditore",
+        simplified_text="Il gatto mangia il topo"
+    )
