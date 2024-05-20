@@ -1,5 +1,5 @@
 from ..utils import nlp_utils
-from sentence_transformers import SentenceTransformer, util
+from sentence_transformers import util
 
 
 class SimilarityAnalyzer:
