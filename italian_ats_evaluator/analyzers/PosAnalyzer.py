@@ -11,15 +11,15 @@ POS_MAP = {
     "SYM": "symbols",
     "ADV": "adverbs",
     "DET": "articles",
-    "PART": "particle",
     "PRON": "pronouns",
+    "PART": "particles",
     "ADJ": "adjectives",
     "ADP": "prepositions",
-    "INTJ": "interjection",
     "PROPN": "proper_nouns",
     "PUNCT": "punctuations",
-    "CCONJ": "coordinating_conjunction",
-    "SCONJ": "subordinating_conjunction",
+    "INTJ": "interjections",
+    "CCONJ": "coordinating_conjunctions",
+    "SCONJ": "subordinating_conjunctions",
 }
 
 
@@ -31,15 +31,15 @@ class PosAnalyzer:
     symbols: List[str] = []
     adverbs: List[str] = []
     articles: List[str] = []
-    particle: List[str] = []
     pronouns: List[str] = []
+    particles: List[str] = []
     adjectives: List[str] = []
     prepositions: List[str] = []
     proper_nouns: List[str] = []
-    interjection: List[str] = []
     punctuations: List[str] = []
-    coordinating_conjunction: List[str] = []
-    subordinating_conjunction: List[str] = []
+    interjections: List[str] = []
+    coordinating_conjunctions: List[str] = []
+    subordinating_conjunctions: List[str] = []
 
     def __init__(self, processed_text: Doc):
         for token in processed_text:
@@ -54,9 +54,11 @@ class PosAnalyzer:
         self.n_adverbs = len(self.adverbs)
         self.n_articles = len(self.articles)
         self.n_pronouns = len(self.pronouns)
+        self.n_particles = len(self.particles)
         self.n_adjectives = len(self.adjectives)
         self.n_prepositions = len(self.prepositions)
         self.n_proper_nouns = len(self.proper_nouns)
         self.n_punctuations = len(self.punctuations)
-        self.n_coordinating_conjunction = len(self.coordinating_conjunction)
-        self.n_subordinating_conjunction = len(self.subordinating_conjunction)
+        self.n_interjections = len(self.interjections)
+        self.n_coordinating_conjunctions = len(self.coordinating_conjunctions)
+        self.n_subordinating_conjunctions = len(self.subordinating_conjunctions)
