@@ -3,10 +3,6 @@ from .PosAnalyzer import PosAnalyzer
 
 
 class ReadabilityAnalyzer:
-    ttr: float
-    gulpease: float
-    flesch_vacca: float
-    lexical_density: float
 
     def __init__(self, basic_analyzer: BasicAnalyzer, pos_analyzer: PosAnalyzer):
         self.ttr = self.__eval_ttr(basic_analyzer)

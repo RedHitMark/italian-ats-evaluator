@@ -1,16 +1,12 @@
-from typing import List
-
 from spacy.tokens import Doc
 
 
 class VerbsAnalyzer:
-    active_verbs: List[str] = []
-    passive_verbs: List[str] = []
-
-    n_active_verbs: int = 0
-    n_passive_verbs: int = 0
 
     def __init__(self, processed_text: Doc):
+        self.active_verbs = []
+        self.passive_verbs = []
+
         for token in processed_text:
             if token.pos_ == "VERB" or token.pos_ == "AUX":
                 if token.dep_ == "aux" and "aux:pass" in [c.dep_ for c in token.head.children]:

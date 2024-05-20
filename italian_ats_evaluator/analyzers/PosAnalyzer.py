@@ -1,5 +1,3 @@
-from typing import List
-
 from spacy.tokens import Doc
 
 POS_MAP = {
@@ -24,24 +22,24 @@ POS_MAP = {
 
 
 class PosAnalyzer:
-    other: List[str] = []
-    nouns: List[str] = []
-    verbs: List[str] = []
-    number: List[str] = []
-    symbols: List[str] = []
-    adverbs: List[str] = []
-    articles: List[str] = []
-    pronouns: List[str] = []
-    particles: List[str] = []
-    adjectives: List[str] = []
-    prepositions: List[str] = []
-    proper_nouns: List[str] = []
-    punctuations: List[str] = []
-    interjections: List[str] = []
-    coordinating_conjunctions: List[str] = []
-    subordinating_conjunctions: List[str] = []
-
     def __init__(self, processed_text: Doc):
+        self.other = []
+        self.nouns = []
+        self.verbs = []
+        self.number = []
+        self.symbols = []
+        self.adverbs = []
+        self.articles = []
+        self.pronouns = []
+        self.particles = []
+        self.adjectives = []
+        self.prepositions = []
+        self.proper_nouns = []
+        self.punctuations = []
+        self.interjections = []
+        self.coordinating_conjunctions = []
+        self.subordinating_conjunctions = []
+
         for token in processed_text:
             if token.pos_ in POS_MAP:
                 getattr(self, POS_MAP[token.pos_]).append(token.text)

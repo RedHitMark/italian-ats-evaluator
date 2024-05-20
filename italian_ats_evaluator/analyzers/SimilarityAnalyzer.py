@@ -3,7 +3,6 @@ from sentence_transformers import SentenceTransformer, util
 
 
 class SimilarityAnalyzer:
-    semantic_similarity: float
 
     def __init__(self, reference_text: str, simplified_text: str):
         model = nlp_utils.get_sentence_transformers_model()

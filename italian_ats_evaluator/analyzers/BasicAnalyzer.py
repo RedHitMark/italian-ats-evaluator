@@ -1,31 +1,20 @@
-from typing import List, Set
-
 from spacy.tokens import Doc
 
 from ..utils import nlp_utils
 
 
 class BasicAnalyzer:
-    tokens: List[str] = []
-    tokens_all: List[str] = []
-    chars: List[str] = []
-    chars_all: List[str] = []
-    syllables: List[str] = []
-    words: Set[str] = set()
-    lemmas: List[str] = []
-    unique_lemmas: Set[str] = set()
-    sentences: List[str] = []
-
-    n_tokens: int = 0
-    n_tokens_all: int = 0
-    n_chars: int = 0
-    n_chars_all: int = 0
-    n_syllables: int = 0
-    n_words: int = 0
-    n_unique_lemmas: int = 0
-    n_sentences: int = 0
-
     def __init__(self, processed_text: Doc):
+        self.tokens = []
+        self.tokens_all = []
+        self.chars = []
+        self.chars_all = []
+        self.syllables = []
+        self.words = set()
+        self.lemmas = []
+        self.unique_lemmas = set()
+        self.sentences = []
+
         for token in processed_text:
             self.tokens_all.append(token.text)
             self.chars_all.extend([c for c in token.text])
