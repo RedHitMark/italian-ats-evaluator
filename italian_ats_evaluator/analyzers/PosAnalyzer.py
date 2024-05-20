@@ -11,9 +11,11 @@ POS_MAP = {
     "SYM": "symbols",
     "ADV": "adverbs",
     "DET": "articles",
+    "PART": "particle",
     "PRON": "pronouns",
     "ADJ": "adjectives",
     "ADP": "prepositions",
+    "INTJ": "interjection",
     "PROPN": "proper_nouns",
     "PUNCT": "punctuations",
     "CCONJ": "coordinating_conjunction",
@@ -29,10 +31,12 @@ class PosAnalyzer:
     symbols: List[str] = []
     adverbs: List[str] = []
     articles: List[str] = []
+    particle: List[str] = []
     pronouns: List[str] = []
     adjectives: List[str] = []
     prepositions: List[str] = []
     proper_nouns: List[str] = []
+    interjection: List[str] = []
     punctuations: List[str] = []
     coordinating_conjunction: List[str] = []
     subordinating_conjunction: List[str] = []
