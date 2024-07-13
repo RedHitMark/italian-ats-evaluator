@@ -50,7 +50,8 @@ pip install italian-ats-evaluator
 from italian_ats_evaluator import TextAnalyzer
 
 result = TextAnalyzer(
-  text="Il gatto mangia il topo"
+  text="Il gatto mangia il topo",
+  spacy_model_name="it_core_news_lg"
 )
 ```
 
@@ -58,8 +59,10 @@ result = TextAnalyzer(
 from italian_ats_evaluator import SimplificationAnalyzer
 
 result =  SimplificationAnalyzer(
-    reference_text="Il felino mangia il roditore",
-    simplified_text="Il gatto mangia il topo"
+  reference_text="Il felino mangia il roditore",
+  simplified_text="Il gatto mangia il topo",
+  spacy_model_name="it_core_news_lg",
+  sentence_transformers_model_name="intfloat/multilingual-e5-base"
 )
 ```
 
@@ -79,7 +82,7 @@ Pull requests are welcome. For major changes, please open an issue first to disc
 
 
 ## Acknowledgements
-This project is part of the research project "VerbACxSS: su verbi analitici, complessità, verbi sintetici, e semplificazione. Per l’accessibilità." funded by the Italian Ministry of University and Research (MUR) under the PRIN 2020 program.
+This contribution is a result of the research conducted within the framework of the PRIN 2020 (Progetti di Rilevante Interesse Nazionale) “VerbACxSS: on analytic verbs, complexity, synthetic verbs, and simplification. For accessibility” (Prot. 2020BJKB9M), funded by the Italian Ministero dell’Università e della Ricerca.
 
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)

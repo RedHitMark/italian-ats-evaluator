@@ -19,10 +19,10 @@ class TextAnalyzer:
     vdb: VdbAnalyzer
     readability: ReadabilityAnalyzer
 
-    def __init__(self, text: str):
+    def __init__(self, text: str, spacy_model_name: str = nlp_utils.DEFAULT_SPACY_MODEL):
         self.text = text
         self.text_cleaned = nlp_utils.clean_text(text)
-        self.text_processed = nlp_utils.get_spacy_model()(self.text_cleaned)
+        self.text_processed = nlp_utils.get_spacy_model(spacy_model_name)(self.text_cleaned)
 
         self.basic = BasicAnalyzer(self.text_processed)
         self.pos = PosAnalyzer(self.text_processed)

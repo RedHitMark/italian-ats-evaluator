@@ -3,6 +3,9 @@ import pyphen
 import pkgutil
 from sentence_transformers import SentenceTransformer
 
+DEFAULT_SPACY_MODEL = "it_core_news_lg"
+DEFAULT_SENTENCE_TRANSFORMERS_MODEL = "intfloat/multilingual-e5-base"
+
 dic = pyphen.Pyphen(lang='it')
 
 italian_vdb_fo = {a for a in pkgutil.get_data('italian_ats_evaluator', 'nvdb/FO.txt').decode('utf-8').replace('\r', '').split('\n')}
@@ -15,21 +18,21 @@ spacy_model = None
 sentence_transformers_model = None
 
 
-def get_spacy_model() -> spacy.language.Language:
+def get_spacy_model(model_name: str) -> spacy.language.Language:
     global spacy_model
     if spacy_model is None:
         try:
-            spacy_model = spacy.load("it_core_news_lg")
+            spacy_model = spacy.load(model_name)
         except OSError:
-            spacy.cli.download("it_core_news_lg")
-            spacy_model = spacy.load("it_core_news_lg")
+            spacy.cli.download(model_name)
+            spacy_model = spacy.load(model_name)
     return spacy_model
 
 
-def get_sentence_transformers_model():
+def get_sentence_transformers_model(model_name) -> SentenceTransformer:
     global sentence_transformers_model
     if sentence_transformers_model is None:
-        sentence_transformers_model = SentenceTransformer('all-MiniLM-L6-v2')
+        sentence_transformers_model = SentenceTransformer(model_name)
     return sentence_transformers_model
 
 
