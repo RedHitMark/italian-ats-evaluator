@@ -5,6 +5,7 @@ if __name__ == "__main__":
         text="Il gatto mangia il topo",
         spacy_model_name="it_core_news_lg"
     )
+    print(result.basic.n_tokens)
 
     result = SimplificationAnalyzer(
         reference_text="Il felino mangia il roditore",
@@ -12,3 +13,4 @@ if __name__ == "__main__":
         spacy_model_name="it_core_news_lg",
         sentence_transformers_model_name="intfloat/multilingual-e5-base"
     )
+    print(result.similarity.semantic_similarity)

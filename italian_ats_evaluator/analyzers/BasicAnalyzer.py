@@ -13,7 +13,7 @@ class BasicAnalyzer:
         self.words = set()
         self.lemmas = []
         self.unique_lemmas = set()
-        self.sentences = []
+        self.sentences = list(processed_text.sents)
 
         for token in processed_text:
             self.tokens_all.append(token.text)
@@ -34,4 +34,4 @@ class BasicAnalyzer:
         self.n_syllables = len(self.syllables)
         self.n_words = len(self.words)
         self.n_unique_lemmas = len(self.unique_lemmas)
-        self.n_sentences = len(list(processed_text.sents))
+        self.n_sentences = len(self.sentences)
