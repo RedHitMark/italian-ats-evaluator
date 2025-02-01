@@ -1,3 +1,5 @@
+import re
+
 import spacy
 import pyphen
 import pkgutil
@@ -8,9 +10,15 @@ DEFAULT_SENTENCE_TRANSFORMERS_MODEL = "intfloat/multilingual-e5-base"
 
 dic = pyphen.Pyphen(lang='it')
 
-italian_vdb_fo = {a for a in pkgutil.get_data('italian_ats_evaluator', 'nvdb/FO.txt').decode('utf-8').replace('\r', '').split('\n')}
-italian_vdb_au = {a for a in pkgutil.get_data('italian_ats_evaluator', 'nvdb/AU.txt').decode('utf-8').replace('\r', '').split('\n')}
-italian_vdb_ad = {a for a in pkgutil.get_data('italian_ats_evaluator', 'nvdb/AD.txt').decode('utf-8').replace('\r', '').split('\n')}
+difficult_connectives = [a for a in pkgutil.get_data('italian_ats_evaluator', 'resources/difficult_connectives.txt').decode('utf-8').replace('\r', '').split('\n')]
+difficult_connectives = [c.replace("a\\w*", "(a|al|allo|alla|ai|agli|alle|all')\\b") for c in difficult_connectives]
+difficult_connectives  = [c.replace("d\\w*", "(di|del|dello|dell'|della|dei|degli|delle|dal|dallo|dall'|dalla|dai|dagli|dalle')\\b") for c in difficult_connectives]
+
+latinisms = [a for a in pkgutil.get_data('italian_ats_evaluator', 'resources/latinisms.txt').decode('utf-8').replace('\r', '').split('\n')]
+
+italian_vdb_fo = {a for a in pkgutil.get_data('italian_ats_evaluator', 'resources/nvdb_FO.txt').decode('utf-8').replace('\r', '').split('\n')}
+italian_vdb_au = {a for a in pkgutil.get_data('italian_ats_evaluator', 'resources/nvdb_AU.txt').decode('utf-8').replace('\r', '').split('\n')}
+italian_vdb_ad = {a for a in pkgutil.get_data('italian_ats_evaluator', 'resources/nvdb_AD.txt').decode('utf-8').replace('\r', '').split('\n')}
 italian_vdb = italian_vdb_fo.union(italian_vdb_au).union(italian_vdb_ad)
 
 
@@ -47,6 +55,22 @@ def clean_text(text: str) -> str:
 
 def eval_syllables(token: str):
     return dic.inserted(token).split('-')
+
+
+def find_difficult_connectives(text: str):
+    connectives_found = []
+    for conn in difficult_connectives:
+        results = [m.group() for m in re.finditer(conn, text, re.IGNORECASE)]
+        connectives_found.extend(results)
+    return connectives_found
+
+
+def find_latinisms(text: str):
+    latinisms_found = []
+    for lat in latinisms:
+        results = [m.group() for m in re.finditer(lat, text, re.IGNORECASE)]
+        latinisms_found.extend(results)
+    return latinisms_found
 
 
 def is_vdb(lemma: str):

@@ -1,6 +1,7 @@
 from spacy.tokens import Doc
 
 from .analyzers.BasicAnalyzer import BasicAnalyzer
+from .analyzers.ExpressionAnalyzer import ExpressionAnalyzer
 from .analyzers.PosAnalyzer import PosAnalyzer
 from .analyzers.ReadabilityAnalyzer import ReadabilityAnalyzer
 from .analyzers.VdbAnalyzer import VdbAnalyzer
@@ -27,5 +28,6 @@ class TextAnalyzer:
         self.basic = BasicAnalyzer(self.text_processed)
         self.pos = PosAnalyzer(self.text_processed)
         self.verbs = VerbsAnalyzer(self.text_processed)
+        self.expression = ExpressionAnalyzer(self.text)
         self.vdb = VdbAnalyzer(self.basic)
         self.readability = ReadabilityAnalyzer(self.basic, self.pos)

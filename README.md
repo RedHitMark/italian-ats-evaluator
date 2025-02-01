@@ -25,7 +25,9 @@ You can analyze a single text extracting the following features:
   - FO (Fundamentals)
   - AU (High Usage)
   - AD (High Availability)
-
+- Expression:
+  - Difficult connectives
+  - Latinisms
 
 You can also compare two texts and get the following metrics:
 - Semantic:
@@ -79,7 +81,6 @@ pip install -e .
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
-
 
 ## Acknowledgements
 This contribution is a result of the research conducted within the framework of the PRIN 2020 (Progetti di Rilevante Interesse Nazionale) “VerbACxSS: on analytic verbs, complexity, synthetic verbs, and simplification. For accessibility” (Prot. 2020BJKB9M), funded by the Italian Ministero dell’Università e della Ricerca.
