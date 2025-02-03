@@ -30,6 +30,7 @@ a mo' d\w*
 ammesso che
 analogamente
 ancorché
+anziché
 a parità d\w*
 a patto che
 a pena d\w*
@@ -65,6 +66,7 @@ entro i limiti d\w*
 facendo seguito a\w*
 fatto salvo
 fermi restando
+giacché
 giusta disposizione d\w*
 in accordo a\w*
 in accordo con
@@ -144,6 +146,7 @@ nella fattispecie
 nel rispetto d\w*
 nonché
 oltre a\w*
+orbene
 \sove[\s,;\.]
 ovvero
 peraltro
