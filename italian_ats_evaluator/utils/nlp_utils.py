@@ -10,11 +10,13 @@ DEFAULT_SENTENCE_TRANSFORMERS_MODEL = "intfloat/multilingual-e5-base"
 
 dic = pyphen.Pyphen(lang='it')
 
-difficult_connectives = [a for a in pkgutil.get_data('italian_ats_evaluator', 'resources/difficult_connectives.txt').decode('utf-8').replace('\r', '').split('\n')]
+difficult_connectives = [c for c in pkgutil.get_data('italian_ats_evaluator', 'resources/difficult_connectives.txt').decode('utf-8').replace('\r', '').split('\n')]
+difficult_connectives = [c + "\\b" for c in difficult_connectives if (not c.endswith("*")) or (not c.endswith("]"))]
 difficult_connectives = [c.replace("a\\w*", "(a|al|allo|alla|ai|agli|alle|all')\\b") for c in difficult_connectives]
 difficult_connectives  = [c.replace("d\\w*", "(di|del|dello|dell'|della|dei|degli|delle|dal|dallo|dall'|dalla|dai|dagli|dalle')\\b") for c in difficult_connectives]
 
-latinisms = [a for a in pkgutil.get_data('italian_ats_evaluator', 'resources/latinisms.txt').decode('utf-8').replace('\r', '').split('\n')]
+latinisms = [l for l in pkgutil.get_data('italian_ats_evaluator', 'resources/latinisms.txt').decode('utf-8').replace('\r', '').split('\n')]
+latinisms = ["\\b" + l + "\\b" for l in latinisms]
 
 italian_vdb_fo = {a for a in pkgutil.get_data('italian_ats_evaluator', 'resources/nvdb_FO.txt').decode('utf-8').replace('\r', '').split('\n')}
 italian_vdb_au = {a for a in pkgutil.get_data('italian_ats_evaluator', 'resources/nvdb_AU.txt').decode('utf-8').replace('\r', '').split('\n')}

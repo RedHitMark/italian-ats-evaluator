@@ -1,8 +1,10 @@
 abbenché
+a beneficio d\w*
 a cagione d\w*
 a carattere d\w*
 a condizione che
 a discapito d\w*
+a discrezione d\w*
 a dispetto d\w*
 a eccezione d\w*
 a esclusione d\w*
@@ -10,7 +12,7 @@ a fronte d\w*
 a giudizio d\w*
 ai fini d\w*
 ai margini d\w*
-ai sensi
+ai sensi d\w*
 al cospetto d\w*
 al fine d\w*
 all'atto d\w*
@@ -34,6 +36,7 @@ a pena d\w*
 a prescindere d\w*
 a scanso d\w*
 a seguito d\w*
+a stretto rigore
 a tal proposito
 a titolo esemplificativo
 a titolo d\w*
@@ -62,18 +65,19 @@ entro i limiti d\w*
 facendo seguito a\w*
 fatto salvo
 fermi restando
-fermo restando
 giusta disposizione d\w*
 in accordo a\w*
+in accordo con
 in adempimento d\w*
 in aderenza a\w*
 in adesione a\w*
 in aggiunta a\w*
 in alternativa a\w*
-in assenza d\w*
+in analogia con
 in antitesi con
 in applicazione d\w*
 in armonia con
+in assenza d\w*
 in attinenza a\w*
 in attuazione d\w*
 in base alle circostanze
@@ -89,6 +93,7 @@ in considerazione d\w*
 in costanza d\w*
 in difformità d\w*
 in esito a\w*
+in egual misura
 in funzione d\w*
 in ipotesi d\w*
 in luogo d\w*
@@ -166,6 +171,7 @@ sotto il profilo d\w*
 stante che
 sulla base d\w*
 sulla scorta d\w*
+talché
 tenendo presente che
 tenuto conto d\w*
 tutt'al più

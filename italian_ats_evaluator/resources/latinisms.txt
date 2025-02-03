@@ -271,7 +271,6 @@ Non liquet
 Non obstante verdicto
 Non profit
 non sequitur
-Nota bene
 Nulla bona
 Nulla poena sine lege
 Nullum crimen, nulla poena sine praevia lege poenali
@@ -301,7 +300,6 @@ Per minas
 Per pro
 Per quod
 Per relationem
-Per se
 Per stirpes
 Persona non grata
 Posse comitatus
@@ -323,11 +321,9 @@ Pro tanto
 Pro tem
 Pro tempore
 Pro veritate
-Propria persona
 Quaeritur
 Quaere
 Quantum meruit
-Quasi
 Quid pro quo
 Qui pro quo
 Quo ante
