@@ -9,10 +9,9 @@ class SimplificationAnalyzer:
     def __init__(self,
                  spacy_model_name: str = nlp_utils.DEFAULT_SPACY_MODEL,
                  sentence_transformers_model_name: str = nlp_utils.DEFAULT_SENTENCE_TRANSFORMERS_MODEL):
-        self.sentence_transformers_model = nlp_utils.get_sentence_transformers_model(sentence_transformers_model_name)
 
         self.text_analyzer = TextAnalyzer(spacy_model_name)
-        self.similarity_analyzer = SimilarityAnalyzer(self.sentence_transformers_model)
+        self.similarity_analyzer = SimilarityAnalyzer(sentence_transformers_model_name)
         self.diff_analyzer = DiffAnalyzer()
 
     def analyze(self, reference_text: str, simplified_text: str) -> SimplificationEvaluation:

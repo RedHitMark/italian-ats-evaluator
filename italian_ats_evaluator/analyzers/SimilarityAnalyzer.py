@@ -1,12 +1,13 @@
 from sentence_transformers import util
 
 from ..models.SimilarityEvaluation import SimilarityEvaluation
+from ..utils import nlp_utils
 
 
 class SimilarityAnalyzer:
 
-    def __init__(self, sentence_transformers_model):
-        self.sentence_transformers_model = sentence_transformers_model
+    def __init__(self, sentence_transformers_model_name):
+        self.sentence_transformers_model = nlp_utils.get_sentence_transformers_model(sentence_transformers_model_name)
 
     def analyze(self, reference_text: str, simplified_text: str) -> SimilarityEvaluation:
         similarity_evaluation = SimilarityEvaluation()

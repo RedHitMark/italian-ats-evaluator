@@ -2,7 +2,7 @@ from typing import List
 
 from pydantic import BaseModel
 
-from italian_ats_evaluator.models import Span
+from italian_ats_evaluator.models.Span import Span
 
 
 class VerbsEvaluation(BaseModel):
