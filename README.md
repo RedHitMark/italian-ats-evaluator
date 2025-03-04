@@ -3,43 +3,43 @@ This is an open source project to evaluate the performance of an italian ATS (Au
 
 You can analyze a single text extracting the following features:
 - Overall:
-  - Number of tokens
-  - Number of tokens (including punctuation)
-  - Number of characters
-  - Number of characters (including punctuation)
-  - Number of words
-  - Number of syllables
-  - Number of unique lemmas
-  - Number of sentences
+    - Number of tokens
+    - Number of tokens (including punctuation)
+    - Number of characters
+    - Number of characters (including punctuation)
+    - Number of words
+    - Number of syllables
+    - Number of unique lemmas
+    - Number of sentences
 - Readability:
-  - Type-Token Ratio (TTR)
-  - Gulpease Index
-  - Flesch-Vacca Index
-  - Lexical Density
+    - Type-Token Ratio (TTR)
+    - Gulpease Index
+    - Flesch-Vacca Index
+    - Lexical Density
 - Part of Speech (POS) distribution
 - Verbs distribution
-  - Active Verbs
-  - Passive Verbs
-- Italian Basic Vocabulary (NVdB) from [Il Nuovo vocabolario di base della lingua italiana, Tullio De Mauro](https://dizionario.internazionale.it/)
-  - All
-  - FO (Fundamentals)
-  - AU (High Usage)
-  - AD (High Availability)
+    - Active Verbs
+    - Passive Verbs
+- Italian Basic Vocabulary (NVdB)
+  from [Il Nuovo vocabolario di base della lingua italiana, Tullio De Mauro](https://dizionario.internazionale.it/)
+    - All
+    - FO (Fundamentals)
+    - AU (High Usage)
+    - AD (High Availability)
 - Expression:
-  - Difficult connectives
-  - Latinisms
+    - Difficult connectives
+    - Latinisms
 
 You can also compare two texts and get the following metrics:
 - Semantic:
-  - Semantic Similarity 
+    - Semantic Similarity
 - Character diff:
-  - Edit Distance
+    - Edit Distance
 - Token diff:
-  - Amount of tokens added
-  - Amount of tokens removed
-  - Amount of VdB tokens removed
-  - Amount of VdB tokens added
-
+    - Amount of tokens added
+    - Amount of tokens removed
+    - Amount of VdB tokens removed
+    - Amount of VdB tokens added
 
 ## Installation
 ```bash
@@ -74,6 +74,7 @@ Create a virtual environment
 python3 -m venv venv
 source venv/bin/activate
 ```
+
 Install the package in editable mode
 ```bash
 pip install -e .

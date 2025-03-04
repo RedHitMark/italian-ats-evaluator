@@ -24,12 +24,14 @@ class ReadabilityAnalyzer:
 
     @staticmethod
     def __eval_gulpease(basic_evaluation: BasicEvaluation) -> float:
-        return 89 + ((300.0 * basic_evaluation.n_sentences) - (10.0 * basic_evaluation.n_chars)) / float(basic_evaluation.n_tokens)
+        return 89 + \
+                ((300.0 * basic_evaluation.n_sentences) - (10.0 * basic_evaluation.n_chars)) / float(basic_evaluation.n_tokens)
 
     @staticmethod
     def __eval_flesch_vacca(basic_evaluation: BasicEvaluation) -> float:
-        return 206 - (0.65 * (basic_evaluation.n_syllables / basic_evaluation.n_tokens) * 100.0) - (
-                1.0 * (basic_evaluation.n_tokens / basic_evaluation.n_sentences))
+        return 206 - \
+                (0.65 * (basic_evaluation.n_syllables / basic_evaluation.n_tokens) * 100.0) - \
+                (1.0 * (basic_evaluation.n_tokens / basic_evaluation.n_sentences))
 
     @staticmethod
     def __eval_lexical_density(basic_evaluation: BasicEvaluation, pos_evaluation: PosEvaluation) -> float:
