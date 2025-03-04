@@ -1,2 +1,2 @@
-from .TextAnalyzer import TextAnalyzer
 from .SimplificationAnalyzer import SimplificationAnalyzer
+from .TextAnalyzer import TextAnalyzer
