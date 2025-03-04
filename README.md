@@ -47,25 +47,34 @@ pip install italian-ats-evaluator
 ```
 
 ## Usage
-
+Create the `TextAnalyzer` and `SimplificationAnalyzer` objects with the desired models.
 ```python
 from italian_ats_evaluator import TextAnalyzer
+from italian_ats_evaluator import SimplificationAnalyzer
 
-result = TextAnalyzer(
-  text="Il gatto mangia il topo",
-  spacy_model_name="it_core_news_lg"
+text_analyzer = TextAnalyzer(
+    spacy_model_name="it_core_news_lg"
+)
+
+simplification_analyzer = SimplificationAnalyzer(
+    spacy_model_name="it_core_news_lg",
+    sentence_transformers_model_name="intfloat/multilingual-e5-base"
 )
 ```
 
+Call the `analyze` method on the `TextAnalyzer` object to evaluate the features of a text.
 ```python
-from italian_ats_evaluator import SimplificationAnalyzer
+text_evaluation = text_analyzer.analyze("Il gatto mangia il topo.")
+print(text_evaluation)
+```
 
-result =  SimplificationAnalyzer(
-  reference_text="Il felino mangia il roditore",
-  simplified_text="Il gatto mangia il topo",
-  spacy_model_name="it_core_news_lg",
-  sentence_transformers_model_name="intfloat/multilingual-e5-base"
+Call the `analyze` method on the `SimplificationAnalyzer` object to evaluate the features of two texts.
+```python
+simplification_evaluation = simplification_analyzer.analyze(
+    reference_text="Il felino mangia il roditore",
+    simplified_text="Il gatto mangia il topo"
 )
+print(simplification_evaluation)
 ```
 
 ## Development
