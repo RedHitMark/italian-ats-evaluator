@@ -59,7 +59,7 @@ def get_difficult_connectives():
 def get_juridical_expressions():
     global juridical_expressions
     if juridical_expressions is None:
-        juridical_expressions = [j for j in pkgutil.get_data('italian_ats_evaluator', 'resources/juridical_expression.txt').decode('utf-8').replace('\r', '').split('\n')]
+        juridical_expressions = [j for j in pkgutil.get_data('italian_ats_evaluator', 'resources/juridical_expressions.txt').decode('utf-8').replace('\r', '').split('\n')]
         juridical_expressions = ["\\b" + j + "\\b" for j in juridical_expressions]
     return juridical_expressions
 

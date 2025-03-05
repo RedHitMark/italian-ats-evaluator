@@ -1,5 +1,5 @@
-from pydantic import BaseModel
+from pydantic import BaseModel, Field
 
 
 class SimilarityEvaluation(BaseModel):
-    semantic_similarity: float = 0.0
+    semantic_similarity: float = Field(default=0, serialization_alias="semanticSimilarity")

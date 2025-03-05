@@ -10,7 +10,6 @@ a titolo di colpa
 a titolo di dolo
 a titolo gratuito
 a titolo oneroso
-a(8)
 a.b.i.
 a.c.
 a.s.l.
@@ -113,7 +112,6 @@ abuso di sostanze alcoliche
 abuso di sostanze stupefacenti
 abuso di stupefacenti
 abuso familiare
-ac
 acc
 acc schengen
 accademia di belle arti
@@ -7304,7 +7302,6 @@ durp
 duvri
 dv
 dvr
-e
 e-commerce
 e-gov
 e-government
@@ -9333,7 +9330,6 @@ guue
 gvap
 güterbeförderung
 gütertransport
-h
 habitat
 habitat di una specie
 habitat naturale
@@ -10668,7 +10664,6 @@ jus tollendi
 juste retour
 kasko
 know-how
-l
 l.c.s.
 l/c
 lacerare
@@ -11402,7 +11397,6 @@ lotteria
 lotterie autorizzate
 lotto funzionale
 lotto prestazionale
-lp
 lpeak
 lpicco
 lpu
@@ -17099,7 +17093,6 @@ ruolo generale
 ruolo generale delle cause
 rup
 ruv
-s
 s.a.p.a.
 s.a.s.
 s.b.f.
@@ -19902,7 +19895,6 @@ uvb
 uvc
 uvi
 uvr
-v
 vacatio legis
 vaccinazione
 vaccinazione di richiamo
@@ -20395,5 +20387,3 @@ zona umida
 zona ztl
 zps
 ztl
-zwangsmaßnahme gegenüber sachen
-zwangsmittel gegen die person des beschuldigten
