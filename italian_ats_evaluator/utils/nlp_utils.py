@@ -18,7 +18,7 @@ spacy_model = None
 sentence_transformers_model = None
 latinisms = None
 difficult_connectives = None
-
+juridical_expressions = None
 
 def get_spacy_model(model_name: str) -> spacy.language.Language:
     global spacy_model
@@ -49,15 +49,19 @@ def get_latinisms():
 def get_difficult_connectives():
     global difficult_connectives
     if difficult_connectives is None:
-        difficult_connectives = [c for c in
-                                 pkgutil.get_data('italian_ats_evaluator', 'resources/difficult_connectives.txt').decode('utf-8').replace('\r',
-                                                                                                                                          '').split(
-                                     '\n')]
+        difficult_connectives = [c for c in pkgutil.get_data('italian_ats_evaluator', 'resources/difficult_connectives.txt').decode('utf-8').replace('\r','').split('\n')]
         difficult_connectives = [c + "\\b" for c in difficult_connectives if (not c.endswith("*")) or (not c.endswith("]"))]
         difficult_connectives = [c.replace("a\\w*", "(a|al|allo|alla|ai|agli|alle|all')\\b") for c in difficult_connectives]
-        difficult_connectives = [c.replace("d\\w*", "(di|del|dello|dell'|della|dei|degli|delle|dal|dallo|dall'|dalla|dai|dagli|dalle')\\b") for c in
-                                 difficult_connectives]
+        difficult_connectives = [c.replace("d\\w*", "(di|del|dello|dell'|della|dei|degli|delle|dal|dallo|dall'|dalla|dai|dagli|dalle')\\b") for c in difficult_connectives]
     return difficult_connectives
+
+
+def get_juridical_expressions():
+    global juridical_expressions
+    if juridical_expressions is None:
+        juridical_expressions = [j for j in pkgutil.get_data('italian_ats_evaluator', 'resources/juridical_expression.txt').decode('utf-8').replace('\r', '').split('\n')]
+        juridical_expressions = ["\\b" + j + "\\b" for j in juridical_expressions]
+    return juridical_expressions
 
 
 def clean_text(text: str) -> str:

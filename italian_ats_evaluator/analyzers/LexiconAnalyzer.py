@@ -11,11 +11,18 @@ from italian_ats_evaluator.utils import nlp_utils
 class LexiconAnalyzer:
 
     def __init__(self):
+        self.juridical_expressions = nlp_utils.get_juridical_expressions()
         self.difficult_connectives = nlp_utils.get_difficult_connectives()
         self.latinisms = nlp_utils.get_latinisms()
 
     def analyze(self, text: str, processed_text: Doc, text_evaluation: TextEvaluation) -> LexiconEvaluation:
         lexicon_evaluation = LexiconEvaluation()
+
+        for jur in self.juridical_expressions:
+            for found in re.finditer(jur, text, re.IGNORECASE):
+                span = Span(start=found.start(), end=found.end(), text=found.group())
+                lexicon_evaluation.n_juridical_expressions += 1
+                lexicon_evaluation.juridical_expressions.append(span)
 
         for conn in self.difficult_connectives:
             for found in re.finditer(conn, text, re.IGNORECASE):

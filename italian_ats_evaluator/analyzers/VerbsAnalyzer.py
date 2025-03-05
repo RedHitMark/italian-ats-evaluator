@@ -19,6 +19,9 @@ class VerbsAnalyzer:
             end = verb_components[-1].idx + len(verb_components[-1].text)
             span = Span(start=start, end=end, text=text[start:end])
 
+            verbs_evaluation.n_verbs += 1
+            verbs_evaluation.verbs.append(span)
+
             if "aux:pass" in [c.dep_ for c in children]:
                 verbs_evaluation.n_passive_verbs += 1
                 verbs_evaluation.passive_verbs.append(span)
