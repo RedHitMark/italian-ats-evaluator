@@ -11,24 +11,26 @@ You can analyze a single text extracting the following features:
     - Number of syllables
     - Number of unique lemmas
     - Number of sentences
+- Part of Speech (POS) distribution
+- Verbs distribution
+    - Active Verbs
+    - Passive Verbs
+    - Reflective Verbs
+- Lexicon:
+    - Italian Basic Vocabulary (NVdB)
+  from [Il Nuovo vocabolario di base della lingua italiana, Tullio De Mauro](https://dizionario.internazionale.it/)
+      - All
+      - FO (Fundamentals)
+      - AU (High Usage)
+      - AD (High Availability)
+    - Difficult connectives
+    - Juridical expressions
+    - Latinisms
 - Readability:
     - Type-Token Ratio (TTR)
     - Gulpease Index
     - Flesch-Vacca Index
     - Lexical Density
-- Part of Speech (POS) distribution
-- Verbs distribution
-    - Active Verbs
-    - Passive Verbs
-- Italian Basic Vocabulary (NVdB)
-  from [Il Nuovo vocabolario di base della lingua italiana, Tullio De Mauro](https://dizionario.internazionale.it/)
-    - All
-    - FO (Fundamentals)
-    - AU (High Usage)
-    - AD (High Availability)
-- Expression:
-    - Difficult connectives
-    - Latinisms
 
 You can also compare two texts and get the following metrics:
 - Semantic:
