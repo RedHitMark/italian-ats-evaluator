@@ -6,11 +6,9 @@ from .utils import nlp_utils
 
 
 class SimplificationAnalyzer:
-    def __init__(self,
-                 spacy_model_name: str = nlp_utils.DEFAULT_SPACY_MODEL,
-                 sentence_transformers_model_name: str = nlp_utils.DEFAULT_SENTENCE_TRANSFORMERS_MODEL):
+    def __init__(self, sentence_transformers_model_name: str = nlp_utils.DEFAULT_SENTENCE_TRANSFORMERS_MODEL):
 
-        self.text_analyzer = TextAnalyzer(spacy_model_name)
+        self.text_analyzer = TextAnalyzer()
         self.similarity_analyzer = SimilarityAnalyzer(sentence_transformers_model_name)
         self.diff_analyzer = DiffAnalyzer()
 

@@ -1,4 +1,4 @@
-from spacy.tokens import Doc
+from typing import Dict
 
 from ..models.BasicEvaluation import BasicEvaluation
 from ..models.PosEvaluation import PosEvaluation
@@ -8,7 +8,7 @@ from ..models.TextEvaluation import TextEvaluation
 
 class ReadabilityAnalyzer:
 
-    def analyze(self, text: str, processed_text: Doc, text_evaluation: TextEvaluation) -> ReadabilityEvaluation:
+    def analyze(self, text: str, processed_text: Dict, text_evaluation: TextEvaluation) -> ReadabilityEvaluation:
         readability_evaluation = ReadabilityEvaluation()
 
         readability_evaluation.ttr = self.__eval_ttr(text_evaluation.basic_evaluation)

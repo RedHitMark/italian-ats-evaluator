@@ -1,6 +1,5 @@
 import re
-
-from spacy.tokens import Doc
+from typing import Dict
 
 from italian_ats_evaluator.models.LexiconEvaluation import LexiconEvaluation
 from italian_ats_evaluator.models.Span import Span
@@ -15,7 +14,7 @@ class LexiconAnalyzer:
         self.difficult_connectives = nlp_utils.get_difficult_connectives()
         self.latinisms = nlp_utils.get_latinisms()
 
-    def analyze(self, text: str, processed_text: Doc, text_evaluation: TextEvaluation) -> LexiconEvaluation:
+    def analyze(self, text: str, processed_text: Dict, text_evaluation: TextEvaluation) -> LexiconEvaluation:
         lexicon_evaluation = LexiconEvaluation()
 
         for jur in self.juridical_expressions:
@@ -36,22 +35,21 @@ class LexiconAnalyzer:
                 lexicon_evaluation.n_latinisms += 1
                 lexicon_evaluation.latinisms.append(span)
 
-        for token in processed_text:
-            if not token.is_punct:
-                start = token.idx
-                end = start + len(token.text)
-                span = Span(start=start, end=end, text=token.text)
-                if nlp_utils.is_vdb(token.lemma_):
-                    lexicon_evaluation.n_easy_tokens += 1
-                    lexicon_evaluation.easy_tokens.append(span)
-                if nlp_utils.is_vdb_fo(token.lemma_):
-                    lexicon_evaluation.n_easy_fo_tokens += 1
-                    lexicon_evaluation.easy_fo_tokens.append(span)
-                if nlp_utils.is_vdb_au(token.lemma_):
-                    lexicon_evaluation.n_easy_au_tokens += 1
-                    lexicon_evaluation.easy_au_tokens.append(span)
-                if nlp_utils.is_vdb_ad(token.lemma_):
-                    lexicon_evaluation.n_easy_ad_tokens += 1
-                    lexicon_evaluation.easy_ad_tokens.append(span)
+        for sentence in processed_text['sentences']:
+            for token in sentence['tokens']:
+                if not token['upos'] == 'PUNCT':
+                    span = Span(start=token['dspan'][0], end=token['dspan'][1], text=token['text'])
+                    if nlp_utils.is_vdb(token['lemma']):
+                        lexicon_evaluation.n_easy_tokens += 1
+                        lexicon_evaluation.easy_tokens.append(span)
+                    if nlp_utils.is_vdb_fo(token['lemma']):
+                        lexicon_evaluation.n_easy_fo_tokens += 1
+                        lexicon_evaluation.easy_fo_tokens.append(span)
+                    if nlp_utils.is_vdb_au(token['lemma']):
+                        lexicon_evaluation.n_easy_au_tokens += 1
+                        lexicon_evaluation.easy_au_tokens.append(span)
+                    if nlp_utils.is_vdb_ad(token['lemma']):
+                        lexicon_evaluation.n_easy_ad_tokens += 1
+                        lexicon_evaluation.easy_ad_tokens.append(span)
 
         return lexicon_evaluation

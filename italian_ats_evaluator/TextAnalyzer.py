@@ -8,8 +8,8 @@ from .utils import nlp_utils
 
 
 class TextAnalyzer:
-    def __init__(self, spacy_model_name: str = nlp_utils.DEFAULT_SPACY_MODEL):
-        self.nlp_model = nlp_utils.get_spacy_model(spacy_model_name)
+    def __init__(self):
+        self.nlp_model = nlp_utils.get_stanza_model()
 
         self.basic_analyzer = BasicAnalyzer()
         self.pos_analyzer = PosAnalyzer()

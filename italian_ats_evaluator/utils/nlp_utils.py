@@ -2,7 +2,9 @@ import pkgutil
 
 import pyphen
 import spacy
+import stanza
 from sentence_transformers import SentenceTransformer
+from trankit import Pipeline
 
 DEFAULT_SPACY_MODEL = "it_core_news_lg"
 DEFAULT_SENTENCE_TRANSFORMERS_MODEL = "intfloat/multilingual-e5-base"
@@ -15,6 +17,8 @@ italian_vdb_ad = {a for a in pkgutil.get_data('italian_ats_evaluator', 'resource
 italian_vdb = italian_vdb_fo.union(italian_vdb_au).union(italian_vdb_ad)
 
 spacy_model = None
+stanza_model = None
+trankit_model = None
 sentence_transformers_model = None
 latinisms = None
 difficult_connectives = None
@@ -29,6 +33,18 @@ def get_spacy_model(model_name: str) -> spacy.language.Language:
             spacy.cli.download(model_name)
             spacy_model = spacy.load(model_name)
     return spacy_model
+
+def get_stanza_model() -> Pipeline:
+    global stanza_model
+    if stanza_model is None:
+        stanza_model = stanza.Pipeline('it', processors='tokenize,pos,lemma,depparse')
+    return stanza_model
+
+def get_trankit_model() -> Pipeline:
+    global trankit_model
+    if trankit_model is None:
+        trankit_model = Pipeline('italian', embedding='xlm-roberta-large')
+    return trankit_model
 
 
 def get_sentence_transformers_model(model_name) -> SentenceTransformer:
